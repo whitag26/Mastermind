@@ -33,14 +33,16 @@ public class Mastermind {
 
 		while(playAgain.equals("Y")) {
 			guess = 1;
+			correctPos = 0;
+			correctNum = 0;
 			while (correctPos <= 3 && correctNum <= 3) {
 				Scanner sc = new Scanner(System.in);
 				System.out.println("Guess " + guess + ":");
-				System.out.println("\tFirst Number: ");
+				System.out.print("\tFirst Number: ");
 				int guess1 = sc.nextInt();
-				System.out.println("\tSecond Number: ");
+				System.out.print("\tSecond Number: ");
 				int guess2 = sc.nextInt();
-				System.out.println("\tThird Number: ");
+				System.out.print("\tThird Number: ");
 				int guess3 = sc.nextInt();
 
 				if(guess1 == guess2 || guess1 == guess3 || guess2 == guess3) {
@@ -68,7 +70,7 @@ public class Mastermind {
 					if(guess3 == num1 || guess3 == num2) {
 						correctNum += 1;
 					}
-					
+
 					guess += 1;
 
 					System.out.println("You have " + correctPos + " correct position(s) and " + correctNum + " correct number(s)");
@@ -78,13 +80,14 @@ public class Mastermind {
 								+ "\nWould you like to play again? (Y/N)");
 						sc.nextLine();
 						playAgain = sc.nextLine();
-					
+						break;
+
+					}
+					correctPos = 0;
+					correctNum = 0;
+
 				}
 
-
-				}
-				correctPos = 0;
-				correctNum = 0;
 			}
 		}
 
